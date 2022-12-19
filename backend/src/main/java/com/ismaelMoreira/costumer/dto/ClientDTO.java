@@ -1,43 +1,43 @@
-package com.ismaelMoreira.costumer.entity;
+package com.ismaelMoreira.costumer.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.ismaelMoreira.costumer.entity.Client;
 
-@Entity
-@Table(name="tb_client")
-public class Client implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class ClientDTO implements Serializable{
+private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String CPF;
+	private String cpf;
 	private Double income;
-	
-	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant birthDate;
 	private Integer children;
+	private Instant birthDate;
 	
-	public Client() {
+	
+	public ClientDTO() {
 	}
 
-	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+	public ClientDTO(Long id, String name, String cpf, Double income, Instant bithDate, Integer children) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.CPF = cpf;
+		this.cpf = cpf;
 		this.income = income;
-		birthDate = birthDate;
+		bithDate = bithDate;
 		children = children;
+	}
+	
+	public ClientDTO(Client client) {
+		super();
+		this.id = client.getId();
+		this.name = client.getName();
+		this.cpf = client.getCpf();
+		this.income = client.getIncome();
+		birthDate = client.getBirthDate();
+		children = client.getChildren();
 	}
 
 	public Long getId() {
@@ -57,11 +57,11 @@ public class Client implements Serializable{
 	}
 
 	public String getCpf() {
-		return CPF;
+		return cpf;
 	}
 
 	public void setCpf(String cpf) {
-		this.CPF = cpf;
+		this.cpf = cpf;
 	}
 
 	public Double getIncome() {
@@ -72,12 +72,12 @@ public class Client implements Serializable{
 		this.income = income;
 	}
 
-	public Instant getBirthDate() {
+	public Instant getBithDate() {
 		return birthDate;
 	}
 
-	public void setBithDate(Instant birthDate) {
-		birthDate = birthDate;
+	public void setBithDate(Instant bithDate) {
+		bithDate = bithDate;
 	}
 
 	public Integer getChildren() {
@@ -101,12 +101,7 @@ public class Client implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Client other = (Client) obj;
+		ClientDTO other = (ClientDTO) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-
 }
