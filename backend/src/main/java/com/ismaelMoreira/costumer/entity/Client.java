@@ -36,8 +36,8 @@ public class Client implements Serializable{
 		this.name = name;
 		this.CPF = cpf;
 		this.income = income;
-		birthDate = birthDate;
-		children = children;
+		this.birthDate = birthDate;
+		this.children = children;
 	}
 
 	public Long getId() {
@@ -76,8 +76,8 @@ public class Client implements Serializable{
 		return birthDate;
 	}
 
-	public void setBithDate(Instant birthDate) {
-		birthDate = birthDate;
+	public void setBirthDate(Instant birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	public Integer getChildren() {
@@ -85,7 +85,7 @@ public class Client implements Serializable{
 	}
 
 	public void setChildren(Integer children) {
-		children = children;
+		this.children = children;
 	}
 
 	@Override

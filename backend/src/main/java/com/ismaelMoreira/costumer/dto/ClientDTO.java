@@ -13,21 +13,22 @@ private static final long serialVersionUID = 1L;
 	private String name;
 	private String cpf;
 	private Double income;
-	private Integer children;
+	
+	
 	private Instant birthDate;
+	private Integer children;
 	
 	
 	public ClientDTO() {
 	}
 
-	public ClientDTO(Long id, String name, String cpf, Double income, Instant bithDate, Integer children) {
-		super();
+	public ClientDTO(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.income = income;
-		bithDate = bithDate;
-		children = children;
+		this.birthDate = birthDate;
+		this.children = children;
 	}
 	
 	public ClientDTO(Client client) {
@@ -36,8 +37,8 @@ private static final long serialVersionUID = 1L;
 		this.name = client.getName();
 		this.cpf = client.getCpf();
 		this.income = client.getIncome();
-		birthDate = client.getBirthDate();
-		children = client.getChildren();
+		this.birthDate = client.getBirthDate();
+		this.children = client.getChildren();
 	}
 
 	public Long getId() {
@@ -72,12 +73,12 @@ private static final long serialVersionUID = 1L;
 		this.income = income;
 	}
 
-	public Instant getBithDate() {
+	public Instant getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBithDate(Instant bithDate) {
-		bithDate = bithDate;
+	public void setBirthDate(Instant bithDate) {
+		this.birthDate = bithDate;
 	}
 
 	public Integer getChildren() {
@@ -85,7 +86,7 @@ private static final long serialVersionUID = 1L;
 	}
 
 	public void setChildren(Integer children) {
-		children = children;
+		this.children = children;
 	}
 
 	@Override
